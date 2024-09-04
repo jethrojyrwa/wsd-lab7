@@ -1,0 +1,62 @@
+html,body{
+  margin:0;
+  padding:0;
+}
+
+header {
+  background-image: url(images/pexels-c1superstar-20694454.jpg);
+  background-size:cover;
+  position: relative;
+  display: flex;
+  align-items: center; /* Vertically align items in the center */
+  margin-right: 0;
+  height: 190px;
+}
+
+#heroes-h3 {
+  text-align: left;
+  z-index: 1;
+  position: relative;
+  margin: 0; /* Remove default margin */
+  line-height: 2.8; /* Adjust line height if necessary */
+  
+}
+
+#header-svg {
+  z-index: 2;
+  display: flex;
+  align-items: center; /* Center the SVG vertically */
+  justify-content: center; /* Center the SVG horizontally */
+  height: 100%; /* Ensure it takes the full height of the header */
+}
+
+.svg-embed {
+  width: 100%; /* Make the SVG occupy the entire width */
+  height: auto; /* Adjust height to maintain aspect ratio */
+  max-height: 100%; /* Ensure it doesn't exceed the height of the container */
+}
+
+footer {
+  height: 50px;
+  text-align: center;
+  border-top: 1px black solid;
+}
+
+.navbar {
+  border-bottom: 1px solid black;
+}
+
+#carouselBostonCollege img {
+  margin: auto;
+  width: 100%;
+  height: auto;
+}
+
+abbr {
+  text-decoration: none;
+}
+
+i {
+  padding: 1px;
+  margin: 1px;
+}

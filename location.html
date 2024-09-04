@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boston College - Location</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/bf4a78ea71.js" crossorigin="anonymous"></script>
+
+    <link rel="icon" href="svg/Boston College.svg" type="image/svg">
+</head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+      #map { height: 400px; width: 100%; margin-top: 20px; }
+    </style>
+  </head>
+
+<body>
+    
+  <div class="row">
+    <div class="col-10">
+    <header class="p my bg-light position-relative">
+      <h3 class="display-5 fwbold" id="heroes-h3">Welcome to Boston College</h3>
+    </header>
+  </div>
+  <div id="header-svg" class="col-2">
+    <img src="svg/Boston College.svg" alt="SVG" class="svg-embed">
+  </div>
+</div>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"><i class="fa-solid fa-school"></i> Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="modal.html"> <i class="fa-solid fa-user-tie"></i>Administration</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-book"></i> Departments</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="location.html"><i class="fa-solid fa-location-crosshairs"></i>Location</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"> <i class="fa-solid fa-ticket"></i>Admission</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"> <i class="fa-solid fa-code-commit"></i><abbr title="Clubs/Cells/Commitees">CCC</abbr></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"> <i class="fa-solid fa-book-open-reader"></i></i>Library</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"> <i class="fa-brands fa-researchgate"></i></i>Research</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"> <i class="fa-solid fa-user-graduate"></i></i>Alumni</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-right-to-bracket"></i>
+                Login
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Administrator</a></li>
+                <li><a class="dropdown-item" href="#">Teacher</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Student</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+      
+      <!-- Openstreet by Maria -->
+       <div id="map"></div>
+      <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+      <script>
+        if('geolocation' in navigator){
+            navigator.geolocation.getCurrentPosition(pos=>{
+                var latitude = pos.coords.latitude;
+                var longitude = pos.coords.longitude;
+                // Display the map
+                var map = L.map('map').setView([latitude, longitude], 13);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+                L.marker([latitude, longitude]).addTo(map)
+                    .bindPopup('Boston College')
+                    .openPopup();
+    
+                document.getElementById("map").classList.remove("d-none");
+    
+            },error=>{
+                let msg="";
+                switch(error.code){
+                    case error.PERMISSION_DENIED:
+                        msg="User Denied Permission";
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        msg="Can't Locate User's Position";
+                        break;
+                    case error.TIMEOUT:
+                        msg="Time out";
+                        break;
+                }
+             let errorArea=document.getElementById("errorArea");
+             errorArea.innerHTML=msg;
+             errorArea.classList.remove("d-none");
+    
+    
+            })
+    
+        }else{
+            console.log("Update your browser to get Geolocation Object");
+        }
+    
+    
+    </script>
+      </nav>
+  <!-- Google map by Riya  -->
+<!-- Button trigger modal -->
+ <div id="modal">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+Boston College
+</button>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Boston College</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2949.3271127916755!2d-71.17106942389194!3d42.335548771195185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e3785da725d4c9%3A0xb68ae90a5b8eb6e!2sBoston%20College!5e0!3m2!1sen!2sin!4v1722676811268!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+    
+    <footer>
+      <p>&copy; 2024 ALL RIGHTS RESERVED</p>
+      <p>Boston College, USA</p>
+    </footer>
+    </html>

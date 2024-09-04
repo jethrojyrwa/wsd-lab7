@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boston College - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
+
+    <link rel="icon" href="svg/Boston College.svg" type="image/svg">
+</head>
+<body>
+    <div class="flex flex-wrap">
+        <div class="w-full md:w-5/6">
+          <header class="py-3 bg-gray-100 relative">
+            <h3 class="text-3xl font-bold" id="heroes-h3">Welcome to Boston College</h3>
+          </header>
+        </div>
+        <div id="header-svg" class="w-full md:w-1/6">
+          <img src="svg/Boston College.svg" alt="SVG" class="max-w-full h-75">
+        </div>
+      </div>
+      
+      <nav class="bg-gray-100">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+          <a class="text-lg font-semibold" href="index.html"><i class="fa-solid fa-school"></i> Home</a>
+          <button class="md:hidden block text-xl">
+            <span class="fa-solid fa-bars"></span>
+          </button>
+          <div class="hidden md:flex flex-col md:flex-row items-center mt-2 md:mt-0">
+            <ul class="flex flex-col md:flex-row md:space-x-4">
+              <li class="nav-item">
+                <a class="text-gray-700" aria-current="page" href="#"><i class="fa-solid fa-user-tie"></i> Administration</a>
+              </li>
+              <li class="nav-item">
+                <a class="text-gray-700" aria-current="page" href="#"><i class="fa-solid fa-book"></i> Departments</a>
+              </li>
+              <li class="nav-item">
+                <a class="text-gray-700" href="location.html"><i class="fa-solid fa-location-crosshairs"></i> Location</a>
+              </li>
+              <li class="nav-item">
+                <a class="text-gray-700" aria-current="page" href="#"><i class="fa-solid fa-ticket"></i> Admission</a>
+              </li>
+              <li class="nav-item">
+                <a class="text-gray-700" aria-current="page" href="#"><i class="fa-solid fa-code-commit"></i> <abbr title="Clubs/Cells/Committees">CCC</abbr></a>
+              </li>
+              <li class="nav-item">
+                <a class="text-gray-700" aria-current="page" href="#"><i class="fa-solid fa-book-open-reader"></i> Library</a>
+              </li>
+              <li class="nav-item">
+                <a class="text-gray-700" aria-current="page" href="#"><i class="fa-brands fa-researchgate"></i> Research</a>
+              </li>
+              <li class="nav-item">
+                <a class="text-gray-700" aria-current="page" href="#"><i class="fa-solid fa-user-graduate"></i> Alumni</a>
+              </li>
+              <li class="nav-item">
+                <a class="text-gray-700" aria-current="page" href="registerF.html"><i class="fa-solid fa-user-graduate"></i> Register</a>
+              </li>
+              <li class="relative">
+                <a class="text-gray-700" href="#" role="button" aria-expanded="false">
+                  <i class="fa-solid fa-right-to-bracket"></i> Login
+                </a>
+                <ul class="absolute bg-white shadow-md mt-1 hidden">
+                  <li><a class="block px-4 py-2 text-gray-700" href="#">Administrator</a></li>
+                  <li><a class="block px-4 py-2 text-gray-700" href="#">Teacher</a></li>
+                  <li><hr class="my-1"></li>
+                  <li><a class="block px-4 py-2 text-gray-700" href="#">Student</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <button id="fetchbooks" class="px-4 py-2 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50">
+        Fetch Books
+    </button>
+    
+    <input type="text" placeholder="Search book name..." id="search" class="px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400">
+    
+    <select id="sorting" class="px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400">
+        <option value="asc">Ascending Order</option>
+        <option value="desc">Descending Order</option>
+    </select>
+    
+      <div id="books-container" class="px-8 py-4"></div>
+      <div id="pagination-container"></div>
+      <script src="books.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://kit.fontawesome.com/bf4a78ea71.js" crossorigin="anonymous"></script>
+
+
+<footer>
+  <p>&copy; 2024 ALL RIGHTS RESERVED</p>
+  <p>Boston College, USA</p>
+</footer>
+</html>
